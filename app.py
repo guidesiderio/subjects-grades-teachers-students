@@ -10,3 +10,22 @@ def mostrar_menu():
     print('8. Listra notas dos alunos de uma disciplina')
     print('9. Sair')
     print()
+
+lista_disciplinas = []
+lista_alunos = []
+lista_professores = []
+
+def gerar_codigo_disciplina(lista_disciplinas):
+    codigo_disciplina = len(lista_disciplinas) + 1
+    lista_disciplinas.append(codigo_disciplina)
+    return codigo_disciplina
+
+def gerar_matricula_aluno(lista_alunos):
+    matricula_aluno = len(lista_alunos) + 1
+    lista_alunos.append(matricula_aluno)
+    return matricula_aluno
+
+def gerar_codigo_professor(lista_professores):
+    codigo_professor = len(lista_professores) + 1
+    lista_professores.append(codigo_professor)
+    return codigo_professor    
