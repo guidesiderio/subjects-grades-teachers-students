@@ -29,3 +29,11 @@ def gerar_codigo_professor(lista_professores):
     codigo_professor = len(lista_professores) + 1
     lista_professores.append(codigo_professor)
     return codigo_professor    
+
+def ler_dados_professor(lista_professores):
+    nome = input('Nome: ')
+    codigo = gerar_codigo_professor(lista_professores)
+
+    dados_professor = (codigo, nome)
+    return dados_professor
+
