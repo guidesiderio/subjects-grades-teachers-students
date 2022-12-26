@@ -11,7 +11,7 @@ def mostrar_menu():
     print('9. Sair')
     print()
 
-lista_disciplinas = []
+lista_disciplinas = list()
 lista_dias_semana = []
 
 def gerar_codigo_disciplina(lista_disciplinas):
@@ -39,6 +39,11 @@ def mostrar_disciplinas(lista_disciplinas):
     for disciplina in lista_disciplinas:
         print(disciplina)
 
+def pesquisar_disciplina(lista_disciplinas, codigo):
+    for disciplina in lista_disciplinas:
+        if codigo in disciplina:
+            print(disciplina)
+    
 mostrar_menu()
 ler_opcao = input('Qual a opção? ')
 opcao = int(ler_opcao)
@@ -47,7 +52,9 @@ while opcao != 9:
         dados_disciplina = ler_disciplina(lista_disciplinas)
         inserir_disciplina(dados_disciplina)
     if opcao == 2:
-        ...
+        print('\nPesquisar Disciplina:')
+        codigo = int(input('Código: '))
+        pesquisar_disciplina(lista_disciplinas, codigo)
     if opcao == 3:
         print('\nDisciplinas Cadastradas:')
         mostrar_disciplinas(lista_disciplinas)   
