@@ -6,7 +6,8 @@ disciplina2 = (1, 'Português', 2021.2, ['val', 'beca'], ['wilton', 'arnaldo'], 
 lista_disciplinas.append(disciplina1)
 lista_disciplinas.append(disciplina2)
 
-codigo = 0
-for disciplina in lista_disciplinas:
-    if codigo in disciplina:
-        print(disciplina)
+nome = 'Guilherme'
+
+disciplina1[3].append('Guilherme')
+
+print(lista_disciplinas[0][3])

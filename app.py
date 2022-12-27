@@ -12,6 +12,7 @@ def mostrar_menu():
     print()
 
 lista_disciplinas = list()
+lista_professores = list()
 lista_dias_semana = []
 
 def gerar_codigo_disciplina(lista_disciplinas):
@@ -22,7 +23,7 @@ def ler_disciplina(lista_disciplinas):
     codigo = gerar_codigo_disciplina(lista_disciplinas)
     nome = input('Nome: ')
     semestre = float(input('Semestre: '))
-    lista_professores = None
+    lista_professores = []
     lista_alunos = None
     carga_horaria = int(input('Carga horária: '))
     lista_dias_semana = None
@@ -43,7 +44,22 @@ def pesquisar_disciplina(lista_disciplinas, codigo):
     for disciplina in lista_disciplinas:
         if codigo in disciplina:
             print(disciplina)
-    
+
+def gerar_codigo_professor(lista_professores):
+    codigo_professor = len(lista_professores) + 1
+    return codigo_professor
+
+def ler_professor(lista_professores):
+    nome = input('Nome: ')    
+    codigo = gerar_codigo_professor(lista_professores)
+
+    dados_profesor = (nome, codigo)
+
+    return dados_profesor
+
+def inserir_professor_disciplina(lista_disciplinas, dados_professor, codigo):
+    lista_disciplinas[codigo - 1][3].append(dados_professor)
+
 mostrar_menu()
 ler_opcao = input('Qual a opção? ')
 opcao = int(ler_opcao)
@@ -53,13 +69,16 @@ while opcao != 9:
         inserir_disciplina(dados_disciplina)
     if opcao == 2:
         print('\nPesquisar Disciplina:')
-        codigo = int(input('Código: '))
+        codigo = int(input('Código da disciplina: '))
         pesquisar_disciplina(lista_disciplinas, codigo)
     if opcao == 3:
         print('\nDisciplinas Cadastradas:')
         mostrar_disciplinas(lista_disciplinas)   
     if opcao == 4:
-        ...
+        print('\nCadastrar professor em disciplina:')
+        codigo = int(input('Código da disciplina: '))
+        dados_professor = ler_professor(lista_professores)
+        inserir_professor_disciplina(lista_disciplinas, dados_professor, codigo)
     if opcao == 5:
         ...
     if opcao == 6:
