@@ -78,8 +78,12 @@ def ler_aluno(lista_alunos):
 
 def inserir_aluno_disciplina(dados_aluno, codigo):
     lista_disciplinas[codigo - 1][4].append(dados_aluno)
-    lista_alunos.append(dados_aluno)    
+    lista_alunos.append(dados_aluno)  
 
+def mostrar_alunos_disciplina(codigo):
+    nome_disciplina = lista_disciplinas[codigo - 1][1]
+    alunos_disciplina = lista_disciplinas[codigo - 1][4]
+    print(f'Disciplina: {nome_disciplina}, Alunos: {alunos_disciplina}')
 
 mostrar_menu()
 ler_opcao = input('Qual a opção? ')
@@ -110,7 +114,9 @@ while opcao != 9:
     if opcao == 6:
         ...
     if opcao == 7:
-        ...
+        print('\nListar alunos de uma Disciplina:')
+        codigo = int(input('Código: '))
+        mostrar_alunos_disciplina(codigo)
     if opcao == 8:
         ...
     
