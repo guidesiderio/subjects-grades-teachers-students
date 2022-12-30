@@ -32,10 +32,13 @@ def ler_disciplina(lista_disciplinas):
     lista_professores = []
     lista_alunos = []
     carga_horaria = int(input('Carga horária: '))
-    lista_dias_semana = None
+    dias_semana = input('Dias da semana: ')
+    numbers = dias_semana.split(" ")
+    numbers = [int(x) for x in numbers]
+
     horario = int(input('Horário: '))
 
-    dados_disciplina = (codigo, nome, semestre, lista_professores, lista_alunos, carga_horaria, lista_dias_semana, horario)
+    dados_disciplina = (codigo, nome, semestre, lista_professores, lista_alunos, carga_horaria, numbers, horario)
 
     return dados_disciplina
 
