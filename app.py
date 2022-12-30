@@ -88,9 +88,9 @@ def mostrar_alunos_disciplina(codigo):
     print(f'Disciplina: {nome_disciplina}, Alunos: {alunos_disciplina}')
 
 def ler_notas_aluno(codigo, matricula):
-    primeira_nota = int(input('Primeira nota: '))    
-    segunda_nota = int(input('Segunda nota: '))    
-    terceira_nota = int(input('Terceira nota: ')) 
+    primeira_nota = float(input('Primeira nota: '))    
+    segunda_nota = float(input('Segunda nota: '))    
+    terceira_nota = float(input('Terceira nota: ')) 
 
     matricula_aluno = int(matricula)   
 
