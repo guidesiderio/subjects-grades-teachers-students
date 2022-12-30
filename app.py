@@ -26,7 +26,9 @@ def gerar_codigo_disciplina(lista_disciplinas):
 def ler_disciplina(lista_disciplinas):
     codigo = gerar_codigo_disciplina(lista_disciplinas)
     nome = input('Nome: ')
-    semestre = float(input('Semestre: '))
+    ano = int(input('Ano: '))
+    periodo = int(input('Período: '))
+    semestre = ano + (periodo / 10)
     lista_professores = []
     lista_alunos = []
     carga_horaria = int(input('Carga horária: '))
