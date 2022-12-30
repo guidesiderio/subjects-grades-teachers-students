@@ -15,7 +15,8 @@ def mostrar_menu():
     print('7. Listar alunos de uma disciplina')
     print('8. Listar notas dos alunos de uma disciplina')
     print('9. Listar alunos de uma disciplina')
-    print('10. Sair')
+    print('10. Mostra professores de uma disciplina')
+    print('11. Sair')
     print()
 
 def gerar_codigo_disciplina(lista_disciplinas):
@@ -108,16 +109,21 @@ def mostrar_notas_alunos(codigo):
     notas = lista_notas_aluno[codigo - 1]
     print(notas)
 
-def mostrar_alunos_disciplina(codigo):
+def mostra_alunos_disciplina(codigo):
     alunos = lista_disciplinas[codigo - 1][4]
 
     print(alunos)
+
+def mostra_professores_disciplina(codigo):
+    professores = lista_disciplinas[codigo -1][3]
+
+    print(professores)
 
 mostrar_menu()
 ler_opcao = input('Qual a opção? ')
 opcao = int(ler_opcao)
 
-while opcao != 10:
+while opcao != 11:
     if opcao == 1:
         print('\nCadastrar Disciplina:')
         dados_disciplina = ler_disciplina(lista_disciplinas)
@@ -164,7 +170,12 @@ while opcao != 10:
     if opcao == 9:
         print('\nAlunos matriculados em uma disciplina:')
         codigo = int(input('Código: '))
-        mostrar_alunos_disciplina(codigo)    
+        mostra_alunos_disciplina(codigo)  
+
+    if opcao == 10:
+        print('\nProfessores de uma disciplina:')
+        codigo = int(input('Código: '))
+        mostra_professores_disciplina(codigo) 
     
     print()
     mostrar_menu()
