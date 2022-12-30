@@ -19,6 +19,12 @@ def mostrar_menu():
     print('11. Sair')
     print()
 
+def mostrar_dias_semana_disponiveis():
+    print('1 - segunda, 2 - terça, 3 - quarta, 4 - quinta, 5 - sexta, 6 - sábado.')   
+
+def mostrar_horarios_disponiveis():
+    print('1 - 8 às 10, 2 - 10 às 12, 3 - 12 às 14, 4 - 14 às 16, 5 - 16 às 18, 6 - 18 às 20 e 7 - 20 às 22.')     
+
 def gerar_codigo_disciplina(lista_disciplinas):
     codigo_disciplina = len(lista_disciplinas) + 1
     return codigo_disciplina
@@ -32,10 +38,11 @@ def ler_disciplina(lista_disciplinas):
     lista_professores = []
     lista_alunos = []
     carga_horaria = int(input('Carga horária: '))
+    mostrar_dias_semana_disponiveis()
     dias_semana = input('Dias da semana: ')
     numbers = dias_semana.split(" ")
     numbers = [int(x) for x in numbers]
-
+    mostrar_horarios_disponiveis()
     horario = int(input('Horário: '))
 
     dados_disciplina = (codigo, nome, semestre, lista_professores, lista_alunos, carga_horaria, numbers, horario)
