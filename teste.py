@@ -6,8 +6,8 @@ disciplina2 = (1, 'Português', 2021.2, ['val', 'beca'], ['wilton', 'arnaldo'], 
 lista_disciplinas.append(disciplina1)
 lista_disciplinas.append(disciplina2)
 
-nome = 'Guilherme'
+notas = (10, 9, 8)
 
-disciplina1[3].append('Guilherme')
+print(disciplina1[4][0])
 
-print(lista_disciplinas[0][3])
+print(lista_disciplinas[0][4][0])
