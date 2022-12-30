@@ -29,7 +29,7 @@ def gerar_codigo_disciplina(lista_disciplinas):
     codigo_disciplina = len(lista_disciplinas) + 1
     return codigo_disciplina
 
-def ler_disciplina(lista_disciplinas):
+def ler_disciplina():
     codigo = gerar_codigo_disciplina(lista_disciplinas)
     nome = input('Nome: ')
     ano = int(input('Ano: '))
@@ -52,11 +52,11 @@ def ler_disciplina(lista_disciplinas):
 def inserir_disciplina(dados_disciplina):
     lista_disciplinas.append(dados_disciplina)
 
-def mostrar_disciplinas(lista_disciplinas):    
+def mostrar_disciplinas():    
     for disciplina in lista_disciplinas:
         print(disciplina)
 
-def pesquisar_disciplina(lista_disciplinas, codigo):
+def pesquisar_disciplina(codigo):
     for disciplina in lista_disciplinas:
         if codigo in disciplina:
             print(disciplina)
@@ -65,7 +65,7 @@ def gerar_codigo_professor(lista_professores):
     codigo_professor = len(lista_professores) + 1
     return codigo_professor
 
-def ler_professor(lista_professores):
+def ler_professor():
     codigo = gerar_codigo_professor(lista_professores)
     nome = input('Nome: ')    
 
@@ -73,7 +73,7 @@ def ler_professor(lista_professores):
 
     return dados_professor
 
-def inserir_professor_disciplina(lista_disciplinas, dados_professor, codigo):
+def inserir_professor_disciplina(dados_professor, codigo):
     lista_disciplinas[codigo - 1][3].append(dados_professor)
     lista_professores.append(dados_professor)
 
@@ -132,64 +132,66 @@ def mostra_professores_disciplina(codigo):
     print(professores)
 
 mostrar_menu()
-ler_opcao = input('Qual a opção? ')
+ler_opcao = input('Digite uma opção:  ')
 opcao = int(ler_opcao)
 
 while opcao != 11:
     if opcao == 1:
         print('\nCadastrar Disciplina:')
-        dados_disciplina = ler_disciplina(lista_disciplinas)
+        dados_disciplina = ler_disciplina()
         inserir_disciplina(dados_disciplina)
 
-    if opcao == 2:
+    elif opcao == 2:
         print('\nPesquisar Disciplina:')
         codigo = int(input('Código da disciplina: '))
-        pesquisar_disciplina(lista_disciplinas, codigo)
+        pesquisar_disciplina(codigo)
 
-    if opcao == 3:
+    elif opcao == 3:
         print('\nDisciplinas Cadastradas:')
-        mostrar_disciplinas(lista_disciplinas) 
+        mostrar_disciplinas() 
 
-    if opcao == 4:
+    elif opcao == 4:
         print('\nCadastrar Professor em Disciplina:')
         codigo = int(input('Código da disciplina: '))
-        dados_professor = ler_professor(lista_professores)
-        inserir_professor_disciplina(lista_disciplinas, dados_professor, codigo)
+        dados_professor = ler_professor()
+        inserir_professor_disciplina(dados_professor, codigo)
 
-    if opcao == 5:
+    elif opcao == 5:
         print('\nCadastrar Aluno em Disciplina')
-        codigo = int(input('Código: '))
+        codigo = int(input('Código da disciplina: '))
         dados_aluno = ler_aluno(lista_alunos)
         inserir_aluno_disciplina(dados_aluno, codigo)
 
-    if opcao == 6:
+    elif opcao == 6:
         print('\nLançar Notas de um Aluno em uma Disciplina:')
-        codigo = int(input('Código: '))
-        matricula = input('Matrícula: ')
+        codigo = int(input('Código da disciplina: '))
+        matricula = input('Matrícula do aluno: ')
         notas_aluno = ler_notas_aluno(codigo, matricula)
         inserir_notas_aluno(notas_aluno)
 
-    if opcao == 7:
-        print('\nListar alunos de uma Disciplina:')
-        codigo = int(input('Código: '))
+    elif opcao == 7:
+        print('\nListar Alunos de uma Disciplina:')
+        codigo = int(input('Código da disciplina: '))
         mostrar_alunos_disciplina(codigo)
 
-    if opcao == 8:
-        print('\nListar notas dos alunos de uma disciplina:')
-        codigo = int(input('Código: '))
+    elif opcao == 8:
+        print('\nListar Notas dos Alunos de uma Disciplina:')
+        codigo = int(input('Código da disciplina: '))
         mostrar_notas_alunos(codigo)
 
-    if opcao == 9:
-        print('\nAlunos matriculados em uma disciplina:')
-        codigo = int(input('Código: '))
+    elif opcao == 9:
+        print('\nAlunos Matriculados em uma Disciplina:')
+        codigo = int(input('Código da disciplina: '))
         mostra_alunos_disciplina(codigo)  
 
-    if opcao == 10:
-        print('\nProfessores de uma disciplina:')
-        codigo = int(input('Código: '))
+    elif opcao == 10:
+        print('\nProfessores de uma Disciplina:')
+        codigo = int(input('Código da disciplina: '))
         mostra_professores_disciplina(codigo) 
+    else:
+        print('\nOpção Inválida!')
     
     print()
     mostrar_menu()
-    ler_opcao = input('Qual a opção? ')
+    ler_opcao = input('Digite uma opção: ')
     opcao = int(ler_opcao)    
