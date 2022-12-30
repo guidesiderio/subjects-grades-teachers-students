@@ -14,7 +14,8 @@ def mostrar_menu():
     print('6. Lançar notas do aluno em uma disciplina')
     print('7. Listar alunos de uma disciplina')
     print('8. Listar notas dos alunos de uma disciplina')
-    print('9. Sair')
+    print('9. Listar alunos de uma disciplina')
+    print('10. Sair')
     print()
 
 def gerar_codigo_disciplina(lista_disciplinas):
@@ -103,16 +104,20 @@ def ler_notas_aluno(codigo, matricula):
 def inserir_notas_aluno(notas_aluno):
     lista_notas_aluno.append(notas_aluno)
 
-def mostrar_notas_alunos():
-    for notas_aluno in lista_notas_aluno:    
-        print(notas_aluno)
+def mostrar_notas_alunos(codigo):
+    notas = lista_notas_aluno[codigo - 1]
+    print(notas)
 
+def mostrar_alunos_disciplina(codigo):
+    alunos = lista_disciplinas[codigo - 1][4]
+
+    print(alunos)
 
 mostrar_menu()
 ler_opcao = input('Qual a opção? ')
 opcao = int(ler_opcao)
 
-while opcao != 9:
+while opcao != 10:
     if opcao == 1:
         print('\nCadastrar Disciplina:')
         dados_disciplina = ler_disciplina(lista_disciplinas)
@@ -150,9 +155,16 @@ while opcao != 9:
         print('\nListar alunos de uma Disciplina:')
         codigo = int(input('Código: '))
         mostrar_alunos_disciplina(codigo)
+
     if opcao == 8:
         print('\nListar notas dos alunos de uma disciplina:')
-        codigo = int(input('Código:'))
+        codigo = int(input('Código: '))
+        mostrar_notas_alunos(codigo)
+
+    if opcao == 9:
+        print('\nAlunos matriculados em uma disciplina:')
+        codigo = int(input('Código: '))
+        mostrar_alunos_disciplina(codigo)    
     
     print()
     mostrar_menu()
