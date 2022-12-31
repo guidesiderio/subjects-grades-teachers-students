@@ -4,6 +4,7 @@ lista_alunos = list()
 lista_dias_semana = list()
 lista_notas_aluno = list()
 
+
 def mostrar_menu():
     print('--- Mini Controle Acadêmico ---')
     print('1. Cadastrar disciplina')
@@ -19,15 +20,19 @@ def mostrar_menu():
     print('11. Sair')
     print()
 
+
 def mostrar_dias_semana_disponiveis():
-    print('1 - segunda, 2 - terça, 3 - quarta, 4 - quinta, 5 - sexta, 6 - sábado.')   
+    print('1 - segunda, 2 - terça, 3 - quarta, 4 - quinta, 5 - sexta, 6 - sábado.')
+
 
 def mostrar_horarios_disponiveis():
-    print('1 - 8 às 10, 2 - 10 às 12, 3 - 12 às 14, 4 - 14 às 16, 5 - 16 às 18, 6 - 18 às 20 e 7 - 20 às 22.')     
+    print('1 - 8 às 10, 2 - 10 às 12, 3 - 12 às 14, 4 - 14 às 16, 5 - 16 às 18, 6 - 18 às 20 e 7 - 20 às 22.')
+
 
 def gerar_codigo_disciplina(lista_disciplinas):
     codigo_disciplina = len(lista_disciplinas) + 1
     return codigo_disciplina
+
 
 def ler_disciplina():
     codigo = gerar_codigo_disciplina(lista_disciplinas)
@@ -45,42 +50,51 @@ def ler_disciplina():
     mostrar_horarios_disponiveis()
     horario = int(input('Horário: '))
 
-    dados_disciplina = (codigo, nome, semestre, lista_professores, lista_alunos, carga_horaria, numbers, horario)
+    dados_disciplina = (codigo, nome, semestre, lista_professores,
+                        lista_alunos, carga_horaria, numbers, horario)
 
     return dados_disciplina
+
 
 def inserir_disciplina(dados_disciplina):
     lista_disciplinas.append(dados_disciplina)
 
-def mostrar_disciplinas():    
+
+def mostrar_disciplinas():
     for disciplina in lista_disciplinas:
         print(disciplina)
+
 
 def pesquisar_disciplina(codigo):
     for disciplina in lista_disciplinas:
         if codigo in disciplina:
             print(disciplina)
 
+
 def gerar_codigo_professor(lista_professores):
     codigo_professor = len(lista_professores) + 1
     return codigo_professor
 
+
 def ler_professor():
     codigo = gerar_codigo_professor(lista_professores)
-    nome = input('Nome: ')    
+    nome = input('Nome: ')
 
     dados_professor = (codigo, nome)
 
     return dados_professor
 
+
 def inserir_professor_disciplina(dados_professor, codigo):
     lista_disciplinas[codigo - 1][3].append(dados_professor)
     lista_professores.append(dados_professor)
+
 
 def gerar_matricula_aluno(lista_alunos):
     matricula_aluno = len(lista_alunos) + 1
     str_matricula_aluno = str(matricula_aluno)
     return str_matricula_aluno
+
 
 def ler_aluno(lista_alunos):
     matricula = gerar_matricula_aluno(lista_alunos)
@@ -91,21 +105,24 @@ def ler_aluno(lista_alunos):
 
     return dados_aluno
 
+
 def inserir_aluno_disciplina(dados_aluno, codigo):
     lista_disciplinas[codigo - 1][4].append(dados_aluno)
-    lista_alunos.append(dados_aluno)  
+    lista_alunos.append(dados_aluno)
+
 
 def mostrar_alunos_disciplina(codigo):
     nome_disciplina = lista_disciplinas[codigo - 1][1]
     alunos_disciplina = lista_disciplinas[codigo - 1][4]
     print(f'Disciplina: {nome_disciplina}, Alunos: {alunos_disciplina}')
 
-def ler_notas_aluno(codigo, matricula):
-    primeira_nota = float(input('Primeira nota: '))    
-    segunda_nota = float(input('Segunda nota: '))    
-    terceira_nota = float(input('Terceira nota: ')) 
 
-    matricula_aluno = int(matricula)   
+def ler_notas_aluno(codigo, matricula):
+    primeira_nota = float(input('Primeira nota: '))
+    segunda_nota = float(input('Segunda nota: '))
+    terceira_nota = float(input('Terceira nota: '))
+
+    matricula_aluno = int(matricula)
 
     aluno = lista_disciplinas[codigo - 1][4][matricula_aluno - 1]
 
@@ -114,22 +131,27 @@ def ler_notas_aluno(codigo, matricula):
     notas_aluno = (codigo, aluno, notas)
     return notas_aluno
 
+
 def inserir_notas_aluno(notas_aluno):
     lista_notas_aluno.append(notas_aluno)
+
 
 def mostrar_notas_alunos(codigo):
     notas = lista_notas_aluno[codigo - 1]
     print(notas)
+
 
 def mostra_alunos_disciplina(codigo):
     alunos = lista_disciplinas[codigo - 1][4]
 
     print(alunos)
 
+
 def mostra_professores_disciplina(codigo):
-    professores = lista_disciplinas[codigo -1][3]
+    professores = lista_disciplinas[codigo - 1][3]
 
     print(professores)
+
 
 mostrar_menu()
 ler_opcao = input('Digite uma opção:  ')
@@ -148,7 +170,7 @@ while opcao != 11:
 
     elif opcao == 3:
         print('\nDisciplinas Cadastradas:')
-        mostrar_disciplinas() 
+        mostrar_disciplinas()
 
     elif opcao == 4:
         print('\nCadastrar Professor em Disciplina:')
@@ -182,16 +204,16 @@ while opcao != 11:
     elif opcao == 9:
         print('\nAlunos Matriculados em uma Disciplina:')
         codigo = int(input('Código da disciplina: '))
-        mostra_alunos_disciplina(codigo)  
+        mostra_alunos_disciplina(codigo)
 
     elif opcao == 10:
         print('\nProfessores de uma Disciplina:')
         codigo = int(input('Código da disciplina: '))
-        mostra_professores_disciplina(codigo) 
+        mostra_professores_disciplina(codigo)
     else:
         print('\nOpção Inválida!')
-    
+
     print()
     mostrar_menu()
     ler_opcao = input('Digite uma opção: ')
-    opcao = int(ler_opcao)    
+    opcao = int(ler_opcao)
